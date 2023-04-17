@@ -31,9 +31,9 @@ class ListNode {
 }
 
 function removeKFromList(l, k) {
-  const obj = new ListNode(null);
-  obj.next = l;
-  let prev = obj;
+  const node = new ListNode(null);
+  node.next = l;
+  let prev = node;
   let curr = l;
 
   while (curr) {
@@ -44,7 +44,7 @@ function removeKFromList(l, k) {
     }
     curr = curr.next;
   }
-  return obj.next;
+  return node.next;
 }
 
 module.exports = {
