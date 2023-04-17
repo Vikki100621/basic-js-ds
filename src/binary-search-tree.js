@@ -26,8 +26,8 @@ class BinarySearchTree {
   }
 
   add(data) {
-   this.base = addWithin(this.base, data);
-    function addWithin(node, data) {
+   this.base = addIn(this.base, data);
+    function addIn(node, data) {
 
       if (!node) {
         return new Node(data);
@@ -38,19 +38,19 @@ class BinarySearchTree {
       }
 
       if (data < node.data) {
-        node.left = addWithin(node.left, data);
+        node.left = addIn(node.left, data);
       } else {
-        node.right = addWithin(node.right, data);
+        node.right = addIn(node.right, data);
       }
 
       return node;
     }
   }
 
-  has(data ) {
-    return searchWithin(this.base, data);
+  has(data) {
+    return search(this.base, data);
 
-    function searchWithin(node, data) {
+    function search(node, data) {
       if (!node) {
         return false;
       }
@@ -60,15 +60,15 @@ class BinarySearchTree {
       }
 
       return data < node.data ?
-        searchWithin(node.left, data) :
-        searchWithin(node.right, data);
+        search(node.left, data) :
+        search(node.right, data);
     }
   }
 
   find(data) {
-    return findWithin(this.base, data);
+    return findIn(this.base, data);
 
-    function findWithin(node, data) {
+    function findIn(node, data) {
       if (!node) {
         return null;
       }
@@ -78,8 +78,8 @@ class BinarySearchTree {
       }
 
       return data < node.data ?
-        findWithin(node.left, data) :
-        findWithin(node.right, data);
+        findIn(node.left, data) :
+        findIn(node.right, data);
     }
   }
 
